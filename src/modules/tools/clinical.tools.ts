@@ -90,6 +90,9 @@ export class ClinicalToolsService {
   async retrievePatient(input: z.infer<typeof RetrievePatientSchema>, ctx: ExecutionContext) {
     ctx.logger.info(`[MCP Tool] Executing retrieve_patient for ID ${input.patientId}`);
     const profile = this.historyService.getPatientProfile(input.patientId);
+    if (!profile) {
+      throw new Error(`Patient ${input.patientId} not found`);
+    }
     return {
       patientId: profile.patientId,
       name: profile.name,
@@ -110,6 +113,9 @@ export class ClinicalToolsService {
   async retrieveVisitHistory(input: z.infer<typeof RetrieveVisitHistorySchema>, ctx: ExecutionContext) {
     ctx.logger.info(`[MCP Tool] Executing retrieve_visit_history for ID ${input.patientId}`);
     const profile = this.historyService.getPatientProfile(input.patientId);
+    if (!profile) {
+      throw new Error(`Patient ${input.patientId} not found`);
+    }
     const limit = input.limit || 5;
     return {
       patientId: profile.patientId,
@@ -132,6 +138,9 @@ export class ClinicalToolsService {
   async analyzeHistory(input: z.infer<typeof AnalyzeHistorySchema>, ctx: ExecutionContext) {
     ctx.logger.info(`[MCP Tool] Executing analyze_history for ID ${input.patientId}`);
     const profile = this.historyService.getPatientProfile(input.patientId);
+    if (!profile) {
+      throw new Error(`Patient ${input.patientId} not found`);
+    }
     return {
       patientId: profile.patientId,
       chronicConditions: profile.conditions,
@@ -153,6 +162,9 @@ export class ClinicalToolsService {
   async medicationReview(input: z.infer<typeof MedicationReviewSchema>, ctx: ExecutionContext) {
     ctx.logger.info(`[MCP Tool] Executing medication_review for ID ${input.patientId}`);
     const profile = this.historyService.getPatientProfile(input.patientId);
+    if (!profile) {
+      throw new Error(`Patient ${input.patientId} not found`);
+    }
     const medsToCheck = input.currentMedications || profile.medications;
     const interactions = this.medicationService.checkDrugInteractions(medsToCheck);
     return {
@@ -172,6 +184,9 @@ export class ClinicalToolsService {
   async allergyCheck(input: z.infer<typeof AllergyCheckSchema>, ctx: ExecutionContext) {
     ctx.logger.info(`[MCP Tool] Executing allergy_check for ID ${input.patientId}`);
     const profile = this.historyService.getPatientProfile(input.patientId);
+    if (!profile) {
+      throw new Error(`Patient ${input.patientId} not found`);
+    }
     const conflicts = this.medicationService.checkAllergyConflicts(input.proposedMedications, profile.allergies);
     return {
       patientId: input.patientId,
@@ -192,6 +207,9 @@ export class ClinicalToolsService {
   async riskAssessment(input: z.infer<typeof RiskAssessmentSchema>, ctx: ExecutionContext) {
     ctx.logger.info(`[MCP Tool] Executing risk_assessment type ${input.assessmentType}`);
     const profile = this.historyService.getPatientProfile(input.patientId);
+    if (!profile) {
+      throw new Error(`Patient ${input.patientId} not found`);
+    }
     return {
       patientId: input.patientId,
       assessmentType: input.assessmentType,
@@ -262,11 +280,16 @@ export class ClinicalToolsService {
   async generateReport(input: z.infer<typeof GenerateReportSchema>, ctx: ExecutionContext) {
     ctx.logger.info(`[MCP Tool] Executing generate_report type ${input.reportType}`);
     const profile = this.historyService.getPatientProfile(input.patientId);
+    if (!profile) {
+      throw new Error(`Patient ${input.patientId} not found`);
+    }
     const summary = this.reportService.generateSummary({
       symptoms: input.findings || ['Fever', 'Cough'],
       history: profile,
       gaps: { missingRiskFactors: [], suggestedQuestions: [], clinicalRationale: '' }
     });
+    const diagnosis = summary.suspectedDiagnosis || summary.primaryDiagnosis || 'Clinical evaluation in progress';
+    const actionPlan = summary.recommendedActionPlan || summary.recommendedActions || [];
     return {
       patientId: input.patientId,
       reportType: input.reportType,
@@ -276,8 +299,8 @@ Date: ${new Date().toISOString().split('T')[0]}
 
 S: ${summary.chiefComplaint}
 O: Temp 38.2°C, BP 138/84, HR 88, SpO2 94% on room air.
-A: ${summary.primaryDiagnosis} in patient with underlying comorbidities.
-P: ${summary.recommendedActions.join('\n   ')}`,
+A: ${diagnosis} in patient with underlying comorbidities.
+P: ${actionPlan.join('\n   ')}`,
       status: 'Generated'
     };
   }
@@ -308,11 +331,12 @@ P: ${summary.recommendedActions.join('\n   ')}`,
   async summarizeConsultation(input: z.infer<typeof SummarizeConsultationSchema>, ctx: ExecutionContext) {
     ctx.logger.info(`[MCP Tool] Executing summarize_consultation for ${input.transcript.length} chars transcript`);
     const result = await this.supervisorService.orchestrateConsultation(input.transcript, input.patientId || '1234');
+    const actions = result.summary?.recommendedActionPlan || result.summary?.recommendedActions || ['Review clinical briefing'];
     return {
       patientId: input.patientId || '1234',
       chiefComplaint: result.summary?.chiefComplaint || 'Consultation summary',
       keyFindings: result.symptomsExtracted,
-      suggestedActions: result.summary?.recommendedActions || ['Review clinical briefing']
+      suggestedActions: actions
     };
   }
 }

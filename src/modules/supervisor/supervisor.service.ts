@@ -530,9 +530,14 @@ export class SupervisorService {
       nodes,
       edges,
       summary: reportRes || {
+        patientId,
         chiefComplaint: symptoms.join(', '),
-        riskLevel: 'EVALUATED',
+        riskLevel: 'EVALUATED' as const,
+        suspectedDiagnosis: 'Clinical Evaluation Complete',
         primaryDiagnosis: 'Clinical Evaluation Complete',
+        keyWarnings: [],
+        evidenceSummary: 'Evaluation complete.',
+        recommendedActionPlan: recommendedQuestions,
         recommendedActions: recommendedQuestions
       }
     };
