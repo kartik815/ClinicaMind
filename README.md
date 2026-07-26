@@ -391,7 +391,7 @@ clinicaMind/
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/kartik815/Agentic-AI-Hackathon-X-NitroStack.git clinicaMind
+git clone https://github.com/kartik815/ClinicaMind.git clinicaMind
 cd clinicaMind
 ```
 

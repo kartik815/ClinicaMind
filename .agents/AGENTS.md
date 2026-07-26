@@ -2,7 +2,7 @@
 
 ## Continuous GitHub Synchronization Workflow
 
-- **Target Repository**: `https://github.com/kartik815/Agentic-AI-Hackathon-X-NitroStack.git`
+- **Target Repository**: `https://github.com/kartik815/ClinicaMind.git`
 - **Target Branch**: `main`
 
 ### Rules & Workflow:
