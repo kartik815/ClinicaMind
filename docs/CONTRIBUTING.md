@@ -6,10 +6,10 @@
 
 | Team Member | Role | Responsibilities |
 |---|---|---|
-| Alice | Frontend Dev | Canvas UI, React Flow, accessibility |
-| Bob | Backend Dev | NitroStack modules and tool logic |
-| Carol | AI Engineer | Prompt design, agent workflows, API integration |
-| Dave | DevOps/QA | Deployment scripts, CI, testing |
+| Harshavardhan | Frontend Dev | Canvas UI, React Flow, accessibility |
+| Vamsi | Backend Dev | NitroStack modules and tool logic |
+| M V Sai Kartik | AI Engineer | Prompt design, agent workflows, API integration |
+| Joy Sandeep | DevOps/QA | Deployment scripts, CI, testing |
 
 ## Workflow
 
