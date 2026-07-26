@@ -1,5 +1,5 @@
 import { Module } from '@nitrostack/core';
-import { ClinicalPromptsService } from './clinical.prompts';
+import { ClinicalPromptsService } from './clinical.prompts.js';
 
 @Module({
   name: 'clinical-prompts',

@@ -1,9 +1,9 @@
-import { PatientRepository } from '../../db/repositories/patient.repository';
-import { ClinicalRecordsRepository } from '../../db/repositories/clinical-records.repository';
-import { AuditRepository } from '../../db/repositories/audit.repository';
-import { IntakeRepository } from '../../db/repositories/intake.repository';
-import { ExtractedPatientProfile } from './medical-extraction.agent';
-import getDb from '../../db/database';
+import { PatientRepository } from '../../db/repositories/patient.repository.js';
+import { ClinicalRecordsRepository } from '../../db/repositories/clinical-records.repository.js';
+import { AuditRepository } from '../../db/repositories/audit.repository.js';
+import { IntakeRepository } from '../../db/repositories/intake.repository.js';
+import { ExtractedPatientProfile } from './medical-extraction.agent.js';
+import getDb from '../../db/database.js';
 
 export interface DoctorVerificationPayload {
   packageId: string;

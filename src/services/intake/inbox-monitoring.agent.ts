@@ -1,4 +1,4 @@
-import { IntakeRepository, IntakePackageEntity } from '../../db/repositories/intake.repository';
+import { IntakeRepository, IntakePackageEntity } from '../../db/repositories/intake.repository.js';
 
 export interface IngestPackageInput {
   senderEmail: string;

@@ -1,6 +1,6 @@
 import { Module } from '@nitrostack/core';
-import { GapAnalysisService } from './gap-analysis.service';
-import { GapAnalysisController } from './gap-analysis.controller';
+import { GapAnalysisService } from './gap-analysis.service.js';
+import { GapAnalysisController } from './gap-analysis.controller.js';
 
 @Module({
   name: 'gap-analysis',

@@ -1,5 +1,5 @@
 import { ToolDecorator as Tool, ExecutionContext, Injectable, z } from '@nitrostack/core';
-import { MedicationService } from './medication.service';
+import { MedicationService } from './medication.service.js';
 
 const CheckInteractionsSchema = z.object({
   drugs: z.array(z.string()).describe('List of current and proposed medications to check')

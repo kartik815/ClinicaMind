@@ -1,7 +1,7 @@
-import { PatientRepository, PatientEntity } from '../db/repositories/patient.repository';
-import { ClinicalRecordsRepository } from '../db/repositories/clinical-records.repository';
-import { VisitRepository } from '../db/repositories/visit.repository';
-import { AuditRepository } from '../db/repositories/audit.repository';
+import { PatientRepository, PatientEntity } from '../db/repositories/patient.repository.js';
+import { ClinicalRecordsRepository } from '../db/repositories/clinical-records.repository.js';
+import { VisitRepository } from '../db/repositories/visit.repository.js';
+import { AuditRepository } from '../db/repositories/audit.repository.js';
 
 export class PatientService {
   static getPatients(searchQuery?: string) {

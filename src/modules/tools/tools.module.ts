@@ -1,11 +1,11 @@
 import { Module } from '@nitrostack/core';
-import { ClinicalToolsService } from './clinical.tools';
-import { HistoryModule } from '../history/history.module';
-import { MedicationModule } from '../medication/medication.module';
-import { ResearchModule } from '../research/research.module';
-import { GapAnalysisModule } from '../gap-analysis/gap-analysis.module';
-import { ReportModule } from '../report/report.module';
-import { SupervisorModule } from '../supervisor/supervisor.module';
+import { ClinicalToolsService } from './clinical.tools.js';
+import { HistoryModule } from '../history/history.module.js';
+import { MedicationModule } from '../medication/medication.module.js';
+import { ResearchModule } from '../research/research.module.js';
+import { GapAnalysisModule } from '../gap-analysis/gap-analysis.module.js';
+import { ReportModule } from '../report/report.module.js';
+import { SupervisorModule } from '../supervisor/supervisor.module.js';
 
 @Module({
   name: 'clinical-tools',

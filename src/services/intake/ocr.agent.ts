@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { IntakeRepository, IntakeAttachmentEntity } from '../../db/repositories/intake.repository';
+import { IntakeRepository, IntakeAttachmentEntity } from '../../db/repositories/intake.repository.js';
 
 export class OcrAgent {
   static async processAttachmentOcr(attachment: IntakeAttachmentEntity): Promise<string> {

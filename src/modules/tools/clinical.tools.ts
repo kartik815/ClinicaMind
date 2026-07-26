@@ -1,10 +1,10 @@
 import { ToolDecorator as Tool, ControllerDecorator as Controller, ExecutionContext, Injectable, z } from '@nitrostack/core';
-import { HistoryService } from '../history/history.service';
-import { MedicationService } from '../medication/medication.service';
-import { ResearchService } from '../research/research.service';
-import { ReportService } from '../report/report.service';
-import { SupervisorService } from '../supervisor/supervisor.service';
-import { CopilotOrchestratorService } from '../supervisor/copilot-orchestrator.service';
+import { HistoryService } from '../history/history.service.js';
+import { MedicationService } from '../medication/medication.service.js';
+import { ResearchService } from '../research/research.service.js';
+import { ReportService } from '../report/report.service.js';
+import { SupervisorService } from '../supervisor/supervisor.service.js';
+import { CopilotOrchestratorService } from '../supervisor/copilot-orchestrator.service.js';
 
 // Zod Schemas for the 12 Clinical MCP Tools
 export const RetrievePatientSchema = z.object({

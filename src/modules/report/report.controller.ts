@@ -1,5 +1,5 @@
 import { ToolDecorator as Tool, ExecutionContext, Injectable, z } from '@nitrostack/core';
-import { ReportService } from './report.service';
+import { ReportService } from './report.service.js';
 
 const GenerateSummarySchema = z.object({
   findings: z.any().describe('Aggregated JSON findings object from History, Medication, Research, and Gap Analysis agents')

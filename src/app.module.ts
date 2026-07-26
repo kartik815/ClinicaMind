@@ -1,15 +1,15 @@
 import { McpApp, Module, ConfigModule } from '@nitrostack/core';
-import { SupervisorModule } from './modules/supervisor/supervisor.module';
-import { HistoryModule } from './modules/history/history.module';
-import { MedicationModule } from './modules/medication/medication.module';
-import { ResearchModule } from './modules/research/research.module';
-import { GapAnalysisModule } from './modules/gap-analysis/gap-analysis.module';
-import { ReportModule } from './modules/report/report.module';
-import { ToolsModule } from './modules/tools/tools.module';
-import { ResourcesModule } from './modules/resources/resources.module';
-import { PromptsModule } from './modules/prompts/prompts.module';
-import { TasksModule } from './modules/tasks/tasks.module';
-import { HealthModule } from './modules/health/health.module';
+import { SupervisorModule } from './modules/supervisor/supervisor.module.js';
+import { HistoryModule } from './modules/history/history.module.js';
+import { MedicationModule } from './modules/medication/medication.module.js';
+import { ResearchModule } from './modules/research/research.module.js';
+import { GapAnalysisModule } from './modules/gap-analysis/gap-analysis.module.js';
+import { ReportModule } from './modules/report/report.module.js';
+import { ToolsModule } from './modules/tools/tools.module.js';
+import { ResourcesModule } from './modules/resources/resources.module.js';
+import { PromptsModule } from './modules/prompts/prompts.module.js';
+import { TasksModule } from './modules/tasks/tasks.module.js';
+import { HealthModule } from './modules/health/health.module.js';
 
 /**
  * Root Application Module for ClinicaMind

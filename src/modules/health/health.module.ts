@@ -1,5 +1,5 @@
 import { Module } from '@nitrostack/core';
-import { McpServerHealthCheck, ClinicalDatabaseHealthCheck, SupervisorAgentHealthCheck } from './clinical.health';
+import { McpServerHealthCheck, ClinicalDatabaseHealthCheck, SupervisorAgentHealthCheck } from './clinical.health.js';
 
 @Module({
   name: 'clinical-health',

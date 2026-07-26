@@ -1,6 +1,6 @@
 import { Module } from '@nitrostack/core';
-import { ResearchService } from './research.service';
-import { ResearchController } from './research.controller';
+import { ResearchService } from './research.service.js';
+import { ResearchController } from './research.controller.js';
 
 @Module({
   name: 'research',

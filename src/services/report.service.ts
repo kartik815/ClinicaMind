@@ -1,5 +1,5 @@
-import { ReportRepository, ReportEntity } from '../db/repositories/report.repository';
-import { AuditRepository } from '../db/repositories/audit.repository';
+import { ReportRepository, ReportEntity } from '../db/repositories/report.repository.js';
+import { AuditRepository } from '../db/repositories/audit.repository.js';
 
 export class ReportService {
   static getReports(patientId?: string) {

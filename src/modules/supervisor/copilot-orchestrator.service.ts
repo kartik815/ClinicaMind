@@ -1,6 +1,6 @@
 import { Injectable } from '@nitrostack/core';
-import { SupervisorService, EvidencePackage } from './supervisor.service';
-import { LlmProviderService, LlmMessage } from './llm-provider.service';
+import { SupervisorService, EvidencePackage } from './supervisor.service.js';
+import { LlmProviderService, LlmMessage } from './llm-provider.service.js';
 
 export interface CopilotQueryRequest {
   query: string;

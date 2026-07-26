@@ -1,5 +1,5 @@
 import { Module } from '@nitrostack/core';
-import { ClinicalTasksService } from './clinical.tasks';
+import { ClinicalTasksService } from './clinical.tasks.js';
 
 @Module({
   name: 'clinical-tasks',

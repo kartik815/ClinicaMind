@@ -1,66 +1,35 @@
-import { ToolDecorator as Tool, Widget, ExecutionContext, Injectable, z } from '@nitrostack/core';
-import { SupervisorService } from './supervisor.service';
+import { ControllerDecorator as Controller, ToolDecorator as Tool, ExecutionContext, Injectable, z } from '@nitrostack/core';
+import { SupervisorService } from './supervisor.service.js';
 
-function clinicalWidget(route: string) {
-  return {
-    route,
-    prefersBorder: true
-  };
-}
-
-const EvaluateConsultationSchema = z.object({
-  transcript: z.string().describe('Live consultation transcript text spoken by doctor or patient'),
-  patientId: z.string().optional().default('1234').describe('Target patient EHR ID'),
-  doctorQuestion: z.string().optional().describe('Doctor question or decision query')
+const OrchestrateConsultationSchema = z.object({
+  transcript: z.string().describe('Live doctor-patient consultation transcript'),
+  patientId: z.string().optional().default('1234').describe('Target EMR patient ID')
 });
 
-const PlanExecutionSchema = z.object({
-  doctorQuestion: z.string().optional().describe('Doctor query or inquiry'),
-  patientId: z.string().optional().default('1234').describe('Target patient EHR ID'),
-  transcript: z.string().optional().describe('Live consultation speech transcript'),
-  consultationContext: z.record(z.any()).optional().describe('Additional clinical context object')
-});
-
+@Controller('supervisor')
 @Injectable({ deps: [SupervisorService] })
 export class SupervisorController {
   constructor(private readonly supervisorService: SupervisorService) {}
 
   @Tool({
-    name: 'plan_consultation_execution',
-    description: 'Supervisor Agent planning tool. Accepts doctor questions, patient ID, transcript, and context to produce an MCP execution plan of required tools.',
-    inputSchema: PlanExecutionSchema
-  })
-  async planExecution(args: z.infer<typeof PlanExecutionSchema>, ctx: ExecutionContext) {
-    ctx.logger.info(`[Supervisor Agent] Planning execution for patient ${args.patientId}...`);
-    const plan = await this.supervisorService.planExecution(args);
-    return {
-      status: 'success',
-      agent: 'Supervisor Agent',
-      executionPlan: plan
-    };
-  }
-
-  @Tool({
-    name: 'evaluate_consultation',
-    description: 'Main ClinicaMind multi-agent orchestrator. Processes live consultation speech transcripts and generates real-time React Flow agent graph nodes.',
-    inputSchema: EvaluateConsultationSchema,
+    name: 'orchestrate_clinical_briefing',
+    description: 'Main entry point for multi-agent clinical decision support graph. Parses transcript, triggers specialized agents, and compiles live clinical briefing.',
+    inputSchema: OrchestrateConsultationSchema,
     examples: {
-      request: { transcript: 'I have chest pain and a productive cough.', patientId: '1234' },
+      request: { transcript: 'Patient presents with 3 days of high fever, productive cough, and right-sided pleuritic chest pain.', patientId: '1234' },
       response: {
-        status: 'success',
         agent: 'Supervisor Agent',
-        nodesCount: 7
+        status: 'completed'
       }
     }
   })
-  @Widget(clinicalWidget('clinical-canvas'))
-  async evaluateConsultation(args: z.infer<typeof EvaluateConsultationSchema>, ctx: ExecutionContext) {
-    ctx.logger.info(`⚡ [Supervisor Agent] Orchestrating consultation transcript (${args.transcript.length} chars)...`);
-    const orchestrationResult = await this.supervisorService.orchestrateConsultation(args.transcript, args.patientId);
+  async orchestrateClinicalBriefing(args: z.infer<typeof OrchestrateConsultationSchema>, ctx: ExecutionContext) {
+    ctx.logger.info(`🤖 [Supervisor Agent] Initiating multi-agent consultation briefing for patient ${args.patientId}...`);
+    const result = await this.supervisorService.orchestrateConsultation(args.transcript, args.patientId);
     return {
       status: 'success',
       agent: 'Supervisor Agent',
-      data: orchestrationResult
+      result
     };
   }
 }

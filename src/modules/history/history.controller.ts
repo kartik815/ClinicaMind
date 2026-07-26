@@ -1,5 +1,5 @@
 import { ToolDecorator as Tool, ExecutionContext, Injectable, z } from '@nitrostack/core';
-import { HistoryService } from './history.service';
+import { HistoryService } from './history.service.js';
 
 const GetPatientHistorySchema = z.object({
   patientId: z.string().describe('The EHR Patient ID to query')

@@ -1,10 +1,10 @@
-import { InboxMonitoringAgent, IngestPackageInput } from './inbox-monitoring.agent';
-import { DocumentDownloadAgent } from './document-download.agent';
-import { OcrAgent } from './ocr.agent';
-import { MedicalExtractionAgent } from './medical-extraction.agent';
-import { DatabasePopulationAgent, DoctorVerificationPayload } from './database-population.agent';
-import { NotificationAgent } from './notification.agent';
-import { IntakeRepository, IntakePackageEntity } from '../../db/repositories/intake.repository';
+import { InboxMonitoringAgent, IngestPackageInput } from './inbox-monitoring.agent.js';
+import { DocumentDownloadAgent } from './document-download.agent.js';
+import { OcrAgent } from './ocr.agent.js';
+import { MedicalExtractionAgent } from './medical-extraction.agent.js';
+import { DatabasePopulationAgent, DoctorVerificationPayload } from './database-population.agent.js';
+import { NotificationAgent } from './notification.agent.js';
+import { IntakeRepository, IntakePackageEntity } from '../../db/repositories/intake.repository.js';
 
 export class IntakeOrchestratorService {
   /**

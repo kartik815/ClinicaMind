@@ -1,7 +1,7 @@
 import { ResourceDecorator as Resource, ExecutionContext, Injectable } from '@nitrostack/core';
-import { PatientRepository } from '../../db/repositories/patient.repository';
-import { VisitRepository } from '../../db/repositories/visit.repository';
-import { ClinicalRecordsRepository } from '../../db/repositories/clinical-records.repository';
+import { PatientRepository } from '../../db/repositories/patient.repository.js';
+import { VisitRepository } from '../../db/repositories/visit.repository.js';
+import { ClinicalRecordsRepository } from '../../db/repositories/clinical-records.repository.js';
 
 @Injectable()
 export class ClinicalResourcesService {

@@ -1,7 +1,7 @@
-import { VisitRepository, VisitEntity } from '../db/repositories/visit.repository';
-import { TranscriptRepository } from '../db/repositories/transcript.repository';
-import { AiExecutionRepository } from '../db/repositories/ai-execution.repository';
-import { AuditRepository } from '../db/repositories/audit.repository';
+import { VisitRepository, VisitEntity } from '../db/repositories/visit.repository.js';
+import { TranscriptRepository } from '../db/repositories/transcript.repository.js';
+import { AiExecutionRepository } from '../db/repositories/ai-execution.repository.js';
+import { AuditRepository } from '../db/repositories/audit.repository.js';
 
 export class VisitService {
   static getVisits(patientId?: string) {

@@ -1,4 +1,4 @@
-import { IntakeAttachmentEntity } from '../../db/repositories/intake.repository';
+import { IntakeAttachmentEntity } from '../../db/repositories/intake.repository.js';
 
 export interface ExtractedPatientProfile {
   name: string;

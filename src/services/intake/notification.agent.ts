@@ -1,5 +1,5 @@
-import { IntakeRepository } from '../../db/repositories/intake.repository';
-import { AuditRepository } from '../../db/repositories/audit.repository';
+import { IntakeRepository } from '../../db/repositories/intake.repository.js';
+import { AuditRepository } from '../../db/repositories/audit.repository.js';
 
 export interface IntakeNotification {
   packageId: string;

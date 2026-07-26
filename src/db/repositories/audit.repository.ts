@@ -1,4 +1,4 @@
-import getDb from '../database';
+import getDb from '../database.js';
 
 export interface AuditLogEntity {
   id: string;

@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { IntakeRepository, IntakeAttachmentEntity } from '../../db/repositories/intake.repository';
+import { IntakeRepository, IntakeAttachmentEntity } from '../../db/repositories/intake.repository.js';
 
 export interface AttachmentInput {
   fileName: string;

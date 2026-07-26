@@ -1,14 +1,14 @@
 import { Module } from '@nitrostack/core';
-import { HistoryModule } from '../history/history.module';
-import { MedicationModule } from '../medication/medication.module';
-import { ResearchModule } from '../research/research.module';
-import { GapAnalysisModule } from '../gap-analysis/gap-analysis.module';
-import { ReportModule } from '../report/report.module';
-import { SupervisorService } from './supervisor.service';
-import { SupervisorController } from './supervisor.controller';
-import { LlmProviderService } from './llm-provider.service';
-import { CopilotOrchestratorService } from './copilot-orchestrator.service';
-import { AgentRegistryService } from './agent-registry';
+import { HistoryModule } from '../history/history.module.js';
+import { MedicationModule } from '../medication/medication.module.js';
+import { ResearchModule } from '../research/research.module.js';
+import { GapAnalysisModule } from '../gap-analysis/gap-analysis.module.js';
+import { ReportModule } from '../report/report.module.js';
+import { SupervisorService } from './supervisor.service.js';
+import { SupervisorController } from './supervisor.controller.js';
+import { LlmProviderService } from './llm-provider.service.js';
+import { CopilotOrchestratorService } from './copilot-orchestrator.service.js';
+import { AgentRegistryService } from './agent-registry.js';
 
 @Module({
   name: 'supervisor',

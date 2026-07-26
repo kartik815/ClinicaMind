@@ -1,10 +1,10 @@
 import { Injectable } from '@nitrostack/core';
-import { HistoryService } from '../history/history.service';
-import { MedicationService } from '../medication/medication.service';
-import { ResearchService } from '../research/research.service';
-import { GapAnalysisService } from '../gap-analysis/gap-analysis.service';
-import { ReportService } from '../report/report.service';
-import { AgentRegistryService, AgentExecutionResult } from './agent-registry';
+import { HistoryService } from '../history/history.service.js';
+import { MedicationService } from '../medication/medication.service.js';
+import { ResearchService } from '../research/research.service.js';
+import { GapAnalysisService } from '../gap-analysis/gap-analysis.service.js';
+import { ReportService } from '../report/report.service.js';
+import { AgentRegistryService, AgentExecutionResult } from './agent-registry.js';
 
 export interface SupervisorInput {
   doctorQuestion?: string;

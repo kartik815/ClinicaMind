@@ -1,4 +1,4 @@
-import { initDb } from './database';
+import { initDb } from './database.js';
 
 console.log('🔄 Running database migrations...');
 try {

@@ -1,8 +1,8 @@
 import { Injectable } from '@nitrostack/core';
-import { PatientService } from '../../services/patient.service';
-import { PatientRepository } from '../../db/repositories/patient.repository';
-import { VisitRepository } from '../../db/repositories/visit.repository';
-import { ClinicalRecordsRepository } from '../../db/repositories/clinical-records.repository';
+import { PatientService } from '../../services/patient.service.js';
+import { PatientRepository } from '../../db/repositories/patient.repository.js';
+import { VisitRepository } from '../../db/repositories/visit.repository.js';
+import { ClinicalRecordsRepository } from '../../db/repositories/clinical-records.repository.js';
 
 export interface PatientDocument {
   id: string;

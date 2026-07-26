@@ -1,6 +1,6 @@
 import { Module } from '@nitrostack/core';
-import { MedicationService } from './medication.service';
-import { MedicationController } from './medication.controller';
+import { MedicationService } from './medication.service.js';
+import { MedicationController } from './medication.controller.js';
 
 @Module({
   name: 'medication',

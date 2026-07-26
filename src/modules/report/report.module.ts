@@ -1,6 +1,6 @@
 import { Module } from '@nitrostack/core';
-import { ReportService } from './report.service';
-import { ReportController } from './report.controller';
+import { ReportService } from './report.service.js';
+import { ReportController } from './report.controller.js';
 
 @Module({
   name: 'report',

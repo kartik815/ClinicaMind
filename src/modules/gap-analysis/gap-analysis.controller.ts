@@ -1,5 +1,5 @@
 import { ToolDecorator as Tool, ExecutionContext, Injectable, z } from '@nitrostack/core';
-import { GapAnalysisService } from './gap-analysis.service';
+import { GapAnalysisService } from './gap-analysis.service.js';
 
 const IdentifyMissingInfoSchema = z.object({
   symptoms: z.array(z.string()).describe('Extracted symptoms from transcript'),

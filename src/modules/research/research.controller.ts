@@ -1,5 +1,5 @@
 import { ToolDecorator as Tool, ExecutionContext, Injectable, z } from '@nitrostack/core';
-import { ResearchService } from './research.service';
+import { ResearchService } from './research.service.js';
 
 const SearchPubMedSchema = z.object({
   query: z.string().describe('Medical query or symptom keywords to search on PubMed E-utilities'),

@@ -1,5 +1,5 @@
-import { TranscriptRepository, TranscriptEntity } from '../db/repositories/transcript.repository';
-import { AuditRepository } from '../db/repositories/audit.repository';
+import { TranscriptRepository, TranscriptEntity } from '../db/repositories/transcript.repository.js';
+import { AuditRepository } from '../db/repositories/audit.repository.js';
 
 export class TranscriptService {
   static getTranscriptsByVisit(visitId: string) {
